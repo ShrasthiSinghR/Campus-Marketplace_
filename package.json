@@ -1,0 +1,38 @@
+{
+  "name": "campus-marketplace",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "npm --prefix server run dev",
+    "server:start": "npm --prefix server start",
+    "seed": "npm --prefix server run seed",
+    "test:api": "npm --prefix server test",
+    "ml:train": "python3 ml-service/training/generate_seed.py && python3 ml-service/training/train_price_model.py",
+    "export-training": "npm --prefix server run export-training",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "migrate-images": "npm --prefix server run migrate-images",
+    "test:ml": "python3 -W ignore -m unittest discover -s ml-service/tests -t ml-service",
+    "ml:serve": "cd ml-service && python3 -m uvicorn app.main:app --port 8000"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "lucide-react": "^1.33.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^1.75.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.0"
+  }
+}
